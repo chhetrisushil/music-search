@@ -1,0 +1,22 @@
+<template id="testImportTemplate">
+  <div class="test">This is an imported Document</div>
+</template>
+<script type="text/javascript">
+  class MyElement extends HTMLElement {
+    static get observedAttributes() {
+      return ['name'];
+    }
+
+    constructor() {
+      super();
+    }
+
+    attributeChangedCallback(attr, oldVal, newVal) {
+      if (attr === 'name') {
+        this.textContent = `Hello, ${newVal}`;
+      }
+    }
+  }
+
+  window.customElements.define('my-element', MyElement);
+</script>

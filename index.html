@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Search Music</title>
+  <script type="text/javascript">
+    (function () {
+        if (!('import' in document.createElement('link'))) {
+          let s = document.createElement('script');
+
+          s.type = "text/javascript";
+          s.src = "./src/vendor/webcomponents-hi.js";
+
+          document.write(s.outerHTML);
+        }
+    })();
+  </script>
+
+  <link rel="import" href="./src/components/search-drawer/search-drawer.html" />
+</head>
+
+<body>
+  <my-element name="Sushil"></my-element>
+  <script>
+    (function () {
+      let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
+        s = document.createElement('script');
+
+      if (isSafari) {
+        s.type = 'module';
+        s.src = './src/js/main.js';
+      } else {
+        s.type = 'text/javascript';
+        s.src = './dist/bundle.js';
+      }
+
+      document.write(s.outerHTML);
+    })();
+  </script>
+</body>
+
+</html>
