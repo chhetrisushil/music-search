@@ -9,7 +9,7 @@ let path = require('path'),
 
 module.exports = {
   entry: [
-    './src/js/main.js'
+    './src/app/main.js'
   ],
   output: {
     path: path.join(__dirname, 'dist'),

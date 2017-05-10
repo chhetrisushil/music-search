@@ -4,6 +4,9 @@
 <head>
   <meta charset="utf-8" />
   <title>Search Music</title>
+  <script>
+    window.isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+  </script>
   <script type="text/javascript">
     (function () {
         if (!('import' in document.createElement('link'))) {
@@ -24,12 +27,11 @@
   <my-element name="Sushil"></my-element>
   <script>
     (function () {
-      let isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent),
-        s = document.createElement('script');
+      let s = document.createElement('script');
 
       if (isSafari) {
         s.type = 'module';
-        s.src = './src/js/main.js';
+        s.src = './src/app/main.js';
       } else {
         s.type = 'text/javascript';
         s.src = './dist/bundle.js';
