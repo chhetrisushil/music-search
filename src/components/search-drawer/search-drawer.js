@@ -6,7 +6,9 @@
  */
 /*global HTMLElement, templateEngine: true*/
 (function () {
-  let template = document.currentScript.ownerDocument.querySelector('#t');
+  "use strict";
+
+  let template = document.currentScript.ownerDocument.querySelector('#search-drawer');
 
   class SearchDrawer extends HTMLElement {
     static get observedAttributes() {
