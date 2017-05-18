@@ -6,5 +6,5 @@
  */
 
 export function test() {
-  console.log('ding ding');
+  // console.log('ding ding');
 }
