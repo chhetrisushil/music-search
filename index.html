@@ -7,6 +7,7 @@
   <script type="text/javascript" src="./src/vendor/TemplateEngine.js"></script>
   <script>
     window.isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    window.isFirefox = /Firefox/i.test(navigator.userAgent);
   </script>
   <script type="text/javascript">
     (function () {
@@ -14,14 +15,14 @@
           let s = document.createElement('script');
 
           s.type = "text/javascript";
-          s.src = "./src/vendor/webcomponents-hi.js";
+          s.src = `./src/vendor/${isFirefox ? 'webcomponents-hi-sd-ce' : 'webcomponents-hi'}.js`;
 
           document.write(s.outerHTML);
         }
     })();
   </script>
 
-  <link rel="import" href="./src/components/search-drawer/search-drawer.html" />
+  <link rel="import" href="./src/components/search-drawer/index.html" />
 </head>
 
 <body>

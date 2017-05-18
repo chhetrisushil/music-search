@@ -4,41 +4,46 @@
  *
  * Distributed under terms of the MIT license.
  */
-/*global HTMLElement, templateEngine: true*/
+/*global HTMLElement: true*/
 (function () {
   "use strict";
 
   let template = document.currentScript.ownerDocument.querySelector('#search-drawer');
 
   class SearchDrawer extends HTMLElement {
-    static get observedAttributes() {
-      return ['name'];
-    }
+    // static get observedAttributes() {
+    //   return ['name'];
+    // }
 
     constructor() {
       super();
-      if (window.isSafari) {
+
+      if (window.isSafari || window.isFirefox) {
         this.root = this.attachShadow({
           mode: 'closed'
         });
       } else {
         this.root = this.createShadowRoot();
       }
+
+      let clone = document.importNode(template.content, true);
+
+      this.root.appendChild(clone);
     }
 
-    attributeChangedCallback(attr, oldValue, newValue) {
-      // let clone = document.importNode(template.content, true);
-      let str = template.innerHTML;
-
-      if (attr === 'name') {
-        str = templateEngine(str, {
-          name: newValue
-        });
-        // clone.querySelector('.test')
-        // .textContent = `Hello, ${newValue}!!!`;
-        this.root.innerHTML = str;
-      }
-    }
+    // attributeChangedCallback(attr, oldValue, newValue) {
+    //   // let clone = document.importNode(template.content, true);
+    //   let str = template.innerHTML;
+    //
+    //   if (attr === 'name') {
+    //     str = templateEngine(str, {
+    //       name: newValue
+    //     });
+    //     // clone.querySelector('.test')
+    //     // .textContent = `Hello, ${newValue}!!!`;
+    //     this.root.innerHTML = str;
+    //   }
+    // }
   }
 
   window.customElements.define('search-drawer', SearchDrawer);
