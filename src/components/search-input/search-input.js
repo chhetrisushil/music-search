@@ -14,13 +14,7 @@
     constructor() {
       super();
 
-      if (window.isSafari || window.isFirefox) {
-        this.root = this.attachShadow({
-          mode: 'closed'
-        });
-      } else {
-        this.root = this.createShadowRoot();
-      }
+      this.root = this.createShadowRoot();
 
       let clone = document.importNode(template.content, true);
 
