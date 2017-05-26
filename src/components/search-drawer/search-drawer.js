@@ -18,11 +18,13 @@
     constructor() {
       super();
 
-      this.root = this.createShadowRoot();
+      this.createShadowRoot();
+    }
 
+    connectedCallback() {
       let clone = document.importNode(template.content, true);
 
-      this.root.appendChild(clone);
+      this.shadowRoot.appendChild(clone);
     }
 
     // attributeChangedCallback(attr, oldValue, newValue) {

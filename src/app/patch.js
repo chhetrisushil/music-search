@@ -12,7 +12,7 @@
   if ((window.isSafari || window.isFirefox) && !HTMLElement.prototype.createShadowRoot) {
     HTMLElement.prototype.createShadowRoot = function () {
       return this.attachShadow({
-        mode: 'closed'
+        mode: 'open'
       });
     };
   }

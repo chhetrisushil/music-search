@@ -14,11 +14,14 @@
     constructor() {
       super();
 
-      this.root = this.createShadowRoot();
+      // creating shadow dom
+      this.createShadowRoot();
+    }
 
+    connectedCallback() {
       let clone = document.importNode(template.content, true);
 
-      this.root.appendChild(clone);
+      this.shadowRoot.appendChild(clone);
     }
   }
 
