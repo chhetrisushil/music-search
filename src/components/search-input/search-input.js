@@ -15,7 +15,7 @@
       super();
 
       // creating shadow dom
-      this.createShadowRoot();
+      this.attachShadow({mode: 'open'});
     }
 
     connectedCallback() {

@@ -18,7 +18,7 @@
     constructor() {
       super();
 
-      this.createShadowRoot();
+      this.attachShadow({mode: 'open'});
     }
 
     connectedCallback() {
